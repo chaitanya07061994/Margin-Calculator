@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+         background-image: url(https://images.pexels.com/photos/4386324/pexels-photo-4386324.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+
+}
+
+        .calculator {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #margin-result {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Margin Calculator</h1>
+        <div class="input-container">
+            <label for="cost-price">Cost Price:</label>
+            <input type="number" id="cost-price" placeholder="Enter cost price">
+        </div>
+        <div class="input-container">
+            <label for="selling-price">Selling Price:</label>
+            <input type="number" id="selling-price" placeholder="Enter selling price">
+        </div>
+        <button onclick="calculateMargin()">Calculate Margin</button>
+        <div id="margin-result"></div>
+    </div>
+
+    <script>
+        function calculateMargin() {
+            const costPrice = parseFloat(document.getElementById('cost-price').value);
+            const sellingPrice = parseFloat(document.getElementById('selling-price').value);
+            
+            if (!isNaN(costPrice) && !isNaN(sellingPrice)) {
+                const margin = ((sellingPrice - costPrice) / costPrice) * 100;
+                document.getElementById('margin-result').textContent = `Margin: ${margin.toFixed(2)}%`;
+            } else {
+                document.getElementById('margin-result').textContent = 'Please enter valid numbers.';
+            }
+        }
+    </script>
+</body>
+</html>
